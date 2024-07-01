@@ -1,0 +1,104 @@
+//Third maximum
+class Solution {
+    public int thirdMax(int[] arr) {
+        Arrays.sort(arr);
+        int n=arr.length;
+        if(n<3){
+            return arr[n-1];
+        }
+        int fm=arr[n-1];
+        int sm=fm;
+        int tm=sm;
+        int c=0;
+        for(int i=n-1;i>=0;i--){
+            if(arr[i]<sm){
+                sm=arr[i];
+                c++;
+            }
+            if(c==2){
+                return sm;
+                
+            }
+        }
+        return tm;
+    }
+}
+
+
+
+
+
+//Rotate Array
+class Solution {
+    public static void fun(int []arr,int i,int j){
+        while(i<=j){
+            int temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+            i++;
+            j--;
+        }
+    }
+    // Function to rotate an array by d elements in counter-clockwise direction.
+    static void rotateArr(int arr[], int d, int n) {
+        // add your code here
+        d%=n;
+        fun(arr,0,n-1);
+        fun(arr,0,n-d-1);
+        fun(arr,n-d,n-1);
+    }
+}
+
+
+
+
+
+
+//check array is sorted or not
+class Solution {
+    public boolean check(int[] nums) {
+    int c = 0;
+    for(int i = 0;i < nums.length; i++){
+        if(nums[i] > nums[(i+1)%nums.length]){
+            c++;
+        }
+        if(c > 1){
+            return false;
+        }
+    }
+    return true;
+        
+    }
+}
+
+
+
+
+
+
+//Third maximum
+class Solution {
+    public static int[] swap(int[]arr,int i,int j){
+        int temp=arr[i];
+		arr[i]=arr[j];
+		arr[j]=temp;
+		
+		return arr;
+    }
+    public void moveZeroes(int[] arr) {
+        int n=arr.length;
+        int i=0;
+        int j=n-1;
+        while(i<j){
+            if(arr[i]!=0){
+                i++;
+            }
+            if(arr[j]==0){
+                j--;
+            }
+            if(arr[j]!=0){
+                swap(arr,i,j);
+            }
+        }
+}
+}
