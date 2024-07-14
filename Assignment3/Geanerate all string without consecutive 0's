@@ -1,0 +1,22 @@
+class Solution {
+
+    public static void generate(ArrayList<String> ls,int n,String s){
+        if(s.length()==n){
+            ls.add(s);
+            return;
+        }
+        if(s.length()==0 ||s.charAt(s.length()-1)=='1'){
+        generate(ls,n,s+"0");
+             generate(ls,n,s+"1");
+        }
+        else{
+          generate(ls,n,s+"1");  
+        }
+        
+    }
+    public List<String> validStrings(int n) {
+                ArrayList<String> ls = new ArrayList<>();
+        generate(ls,n,"");
+        return ls;
+    }
+}
