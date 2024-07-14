@@ -1,0 +1,22 @@
+class Solution {
+    public static long GCD(long a , long b){
+        while(a!=b){
+            if(a>b){
+                a=a-b;
+            }
+            else
+            b=b-a;
+        }
+        return a;
+    }
+    public static long lcm(long a,long b){
+        return (a*b)/GCD(a,b);
+    }
+    static Long[] lcmAndGcd(Long A , Long B) {
+        // code here
+        Long arr[] = new Long[2];
+        arr[0]=lcm(A,B);
+        arr[1]=GCD(A,B);
+        return arr;
+    }
+};
