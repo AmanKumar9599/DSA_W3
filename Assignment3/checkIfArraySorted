@@ -1,0 +1,15 @@
+class Solution {
+    public boolean help(List<Integer> a,int n){
+        // int n=a.size();
+         if (n == 1 || n == 0)
+            return true;
+    
+          
+        return a.get(n - 1) >= a.get(n - 2)
+            && help(a, n - 1);
+    }
+    public boolean arraySortedOrNot(List<Integer> arr) {
+        // code here
+       return help(arr,arr.size());
+    }
+}
