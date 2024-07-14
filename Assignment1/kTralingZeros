@@ -1,0 +1,30 @@
+public class Main
+{
+    public static int pow(int a,int b){
+        if(b==0)
+        return 1;
+        if(b%2==0){
+            return pow(a,b/2)*pow(a,b/2);
+        }
+        else{
+             return pow(a,b/2)*pow(a,b/2)*a;
+        }
+    }
+    public static int GCD(int a,int b){
+        while(a!=b){
+        if(a>b){
+            a=a-b;
+        }
+        else
+        b=b-a;
+        }
+        return a;
+    }
+    public static int trail(int n,int k){
+        int a=pow(10,k);
+        return a*n/GCD(a,n);
+    }
+	public static void main(String[] args) {
+	System.out.print(trail(375,4));
+	}
+}
