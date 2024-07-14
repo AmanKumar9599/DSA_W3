@@ -76,7 +76,7 @@ class Solution {
 
 
 
-//Third maximum
+//MoveZeros
 class Solution {
     public static int[] swap(int[]arr,int i,int j){
         int temp=arr[i];
