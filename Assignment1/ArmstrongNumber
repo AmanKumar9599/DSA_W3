@@ -1,0 +1,30 @@
+class Solution {
+    public static int pow(int a,int b){
+        if(b==0){
+            return 1;
+        }
+        if(b%2==0){
+            return pow(a,b/2)*pow(a,b/2);
+        }
+        else{
+            return a*pow(a,b/2)*pow(a,b/2);
+        }
+    }
+    static String armstrongNumber(int n){
+        // code here
+        int a=n;
+        int sum=0;
+        int count=(int)Math.log10(n)+1;
+        while(n!=0){
+            int r=n%10;
+            sum+=pow(r,count);
+            n/=10;
+        }
+        if(sum==a){
+            return "true";
+        }
+        else{
+            return "false";
+        }
+    }
+}
